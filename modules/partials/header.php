@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./assets/css/index.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-    <script src="./assets/js/index.js"></script>s
+    <script src="./assets/js/index.js"></script>
 </head>
 
 <body>
@@ -43,6 +43,6 @@
     <nav>
         <ul>
             <li><a href="./index.php">Home</a></li>
-            <li><a href="./my_profile.php">My Profile</a></li>
+            <li><a href="./index.php?m=profile">My Profile</a></li>
         </ul>
     </nav>
