@@ -1,6 +1,10 @@
 <?php
 // Get modules need to use for main content by using $_GET
-$module = $_GET['m'];
+if (isset($_GET['m'])) {
+    $module = $_GET['m'];
+} else {
+    $module = null;
+}
 
 // If there is no get param to load page, set $module default to home page
 if ($module == null) {
