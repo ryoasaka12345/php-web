@@ -20,10 +20,10 @@ require __DIR__ . '/libs/db.php';
 
 // define mysql object
 $mysql = new DB(
-    $db_config['host'],
-    $db_config['user'],
-    $db_config['password'],
-    $db_config['db_name']
+    $db_config["host"],
+    $db_config["user"],
+    $db_config["password"],
+    $db_config["db_name"]
 );
 
 # Include header
@@ -36,3 +36,4 @@ require __DIR__ . "/modules/$module.php";
 require __DIR__ . '/modules/partials/footer.php';
 
 ob_end_flush();
+//ob_end_clean();

@@ -8,10 +8,10 @@ class DB {
     private $conn;
 
     public function __construct($host, $user, $password, $db) {
-        $this->$host = $host;
-        $this->$user = $user;
-        $this->$password = $password;
-        $this->$db = $db;
+        $this->host = $host;
+        $this->user = $user;
+        $this->password = $password;
+        $this->db = $db;
     }
 
     public function connect() {
