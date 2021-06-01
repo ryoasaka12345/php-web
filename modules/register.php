@@ -1,4 +1,8 @@
 <?php
+if ($user) {
+    header("location: index.php");
+} 
+
 // Define variable to check if user is not registered
 if (isset($_GET['success'])) {
     $isSuccess = $_GET['success'];
