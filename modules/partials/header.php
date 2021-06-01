@@ -24,25 +24,33 @@ $pageTitle = $pageTitles[$module];
 <body>
     <!-- The Header -->
     <header>
-        <div>
+        <div id="logo">
             <h4>The logo</h4>
         </div>
         <div>
-            <h2 class="slogan">The header slogan</h2>
+            <h2 id="slogan">The header slogan</h2>
         </div>
-        <div id="form">
+        <div id="login">
             <ul>
-                <li>Hi <span>Guest</span></li>
-                <li><a href="javascript:void(0)" onclick="showLoginForm()">Login</a></li>
+                <li>Hi Guest</li>
+                <li>
+                    <a href="javascript:void(0);" onclick="openMenu()"> Login </a>
+                </li>
             </ul>
-
-            <form id="login">
-                <input type="text" name="username" placeholder="User name" />
-                <input type="password" name="password" placeholder="Password" />
-                <label><input type="checkbox" name="rememberUsername" />Remember user name </label>
-                <button type="submit" name="Login">Login</button>
-            </form>
-            <form method="GET" id="search">
+            <div id="form1">
+                <form>
+                    <input type="text" placeholder="Username" />
+                    <input type="text" placeholder="Password" />
+                    <div>
+                        <input type="checkbox" name="remember un" />
+                        Remember username
+                    </div>
+                    <input type="button" name="Login" value="LOGIN" />
+                </form>
+            </div>
+        </div>
+        <div id="search">
+            <form method="GET">
                 <input type="text" name="keyword" />
                 <i class="material-icons">search</i>
             </form>

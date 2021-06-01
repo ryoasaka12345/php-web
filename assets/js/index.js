@@ -51,3 +51,24 @@ window.addEventListener('scroll', function () {
 window.addEventListener('load', () => {
     toggleScrollButton();
 });
+
+/* 
+
+    Open the menu form
+
+*/
+function openMenu() {
+    const form = document.querySelector("#form1");
+    if (form.style.display == 'none') {
+        form.style.display = 'flex';
+    } else {
+        form.style.display = 'none';
+    }
+}
+
+window.addEventListener('click', (e) => {
+    if (!e.target.closest('#login')) {
+        const form = document.querySelector("#form1");
+        form.style.display = 'none';
+    }
+});
