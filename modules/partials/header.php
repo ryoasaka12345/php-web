@@ -3,7 +3,9 @@
 $pageTitles = array(
     'home' => "Home",
     "profile" => "My Profile",
+    "register" => "Register" // page title for register
 );
+
 // Get page title depend on what is using module. 
 $pageTitle = $pageTitles[$module];
 ?>
@@ -61,6 +63,7 @@ $pageTitle = $pageTitles[$module];
     <nav>
         <ul>
             <li><a href="./index.php">Home</a></li>
+            <li><a href="./index.php?m=register">Register</a></li>
             <li><a href="./index.php?m=profile">My Profile</a></li>
         </ul>
     </nav>
