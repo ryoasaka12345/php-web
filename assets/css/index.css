@@ -112,7 +112,8 @@ header {
 	text-align: center;
 }
 
-#login form input[type="text"] {
+#login form input[type="text"],
+#login form input[type="password"] {
 	background-color: blanchedalmond;
 	border-radius: 10px;
 	width: 250px;
@@ -120,7 +121,7 @@ header {
 	margin: 5px;
 }
 
-#login form input[type="button"] {
+#login form button {
 	width: 230px;
 	height: 40px;
 	border-radius: 20px;

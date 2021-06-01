@@ -40,14 +40,14 @@ $pageTitle = $pageTitles[$module];
                 </li>
             </ul>
             <div id="form1">
-                <form>
+                <form action="./index.php?m=login" method="post">
                     <input type="text" placeholder="Username" />
-                    <input type="text" placeholder="Password" />
+                    <input type="password" placeholder="Password" />
                     <div>
-                        <input type="checkbox" name="remember un" />
+                        <input type="checkbox" name="rememberusername" />
                         Remember username
                     </div>
-                    <input type="button" name="Login" value="LOGIN" />
+                    <button type="submit" name="Login">LOGIN</button>
                 </form>
             </div>
         </div>

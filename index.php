@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 // turn on putput buffering
 ob_start(); 
 
