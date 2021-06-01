@@ -38,4 +38,3 @@ require __DIR__ . "/modules/$module.php";
 require __DIR__ . '/modules/partials/footer.php';
 
 ob_end_flush();
-//ob_end_clean();

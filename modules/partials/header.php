@@ -17,10 +17,9 @@
     /* 
         show logged in user
     */
+    $userId = null;
     if (isset($_SESSION['login_user_id'])) {
         $userId = $_SESSION['login_user_id'];
-    } else {
-        $userId = null;
     }
 
     $user = false;
@@ -37,7 +36,7 @@
         $user = $result->fetch_array() ?? false;
     }
 
-    $fullname = $user ? $user['fullname'] : 'AAAAA';
+    $fullname = $user ? $user['fullname'] : 'Guest';
 
 ?>
 
@@ -59,7 +58,7 @@
     <!-- The Header -->
     <header>
         <div id="logo">
-            <h4>The logo <?php echo $_SESSION['login_user_id']; ?></h4>
+            <h4>The logo <?php echo $userId; ?></h4>
         </div>
         <div>
             <h2 id="slogan">The header slogan</h2>
@@ -70,7 +69,7 @@
                 <?php if (!$user) { ?>
                     <li><a href="javascript:void(0);" onclick="openMenu()"> Login</a>
                 <?php } else { ?>
-                    <li><a href="javascript:void(0);">Logout</a></li>
+                    <li><a href="./index.php?m=logout">Logout</a></li>
                 <?php } ?>
             </ul>
             <div id="form1">
