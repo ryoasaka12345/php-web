@@ -3,7 +3,7 @@
 if (isset($_GET['success'])) {
     $isSuccess = $_GET['success'];
 } else {
-    $isSuccess = null;
+    $isSuccess = false;
 }
 
 // Reveive post data
@@ -33,25 +33,40 @@ if (!empty($_POST)) {
 <div id = "main">
     <div id="main-content">
         <h3>Register User</h3>
-        <form method="post" class="form-register">
-            <p>
-                <label>Username: </label>
-                <input type="text" name="username" />
-            </p>
-            <p>
-                <label>Email: </label>
-                <input type="text" name="email" />
-            </p>
-            <p>
-                <label>Full Name: </label>
-                <input type="text" name="fullname" />
-            </p>
-            <p>
-                <label>Password: </label>
-                <input type="password" name="password" />
-            </p>
-            <p><input type="submit" value="Register"/></p>
-        </form>
+        <?php
+        // check if there is any error
+        if (isset($errors) && !empty($errors)){
+            foreach ($erros as $error) {
+                echo '<p>'. $error . '</p>';
+            }
+        }
+        ?>
+        <?php
+        // show form if user not registered
+        if (!$isSuccess) { ?>
+            <form method="post" class="form-register">
+                <p>
+                    <label>Username: </label>
+                    <input type="text" name="username" />
+                </p>
+                <p>
+                    <label>Email: </label>
+                    <input type="text" name="email" />
+                </p>
+                <p>
+                    <label>Full Name: </label>
+                    <input type="text" name="fullname" />
+                </p>
+                <p>
+                    <label>Password: </label>
+                    <input type="password" name="password" />
+                </p>
+                <p><input type="submit" value="Register"/></p>
+            </form>
+        <?php
+        } else {
+            echo "<p>Welcome to our website!</p>";
+        } ?>
     </div>
     <!-- embed sidebar.php -->
     <?php require __DIR__. '/partials/sidebar.php'; ?>
