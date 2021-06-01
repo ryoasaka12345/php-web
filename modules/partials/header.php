@@ -1,14 +1,46 @@
 <?php
-// Define an array to contain page titles
-$pageTitles = array(
-    'home' => "Home",
-    "profile" => "My Profile",
-    "register" => "Register" // page title for register
-);
+    /* 
+        Define an array to contain page titles
+    */
+    $pageTitles = array(
+        'home' => "Home",
+        "profile" => "My Profile",
+        "register" => "Register", // page title for register
+        "login" => "login"
+    );
 
-// Get page title depend on what is using module. 
-$pageTitle = $pageTitles[$module];
+    /* 
+        Get page title depend on what is using module. 
+    */
+    $pageTitle = $pageTitles[$module];
+
+    /* 
+        show logged in user
+    */
+    if (isset($_SESSION['login_user_id'])) {
+        $userId = $_SESSION['login_user_id'];
+    } else {
+        $userId = null;
+    }
+
+    $user = false;
+    if ($userId) {
+        // query user data by $username and $password
+        $sql = "SELECT id, username, email, fullname
+            FROM users
+            WHERE id = $userId
+            LIMIT 0, 1";
+
+        $result = $mysql->query($sql);
+
+        // if there is user information, mean that user is logged-in
+        $user = $result->fetch_array() ?? false;
+    }
+
+    $fullname = $user ? $user['fullname'] : 'AAAAA';
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,22 +59,24 @@ $pageTitle = $pageTitles[$module];
     <!-- The Header -->
     <header>
         <div id="logo">
-            <h4>The logo</h4>
+            <h4>The logo <?php echo $_SESSION['login_user_id']; ?></h4>
         </div>
         <div>
             <h2 id="slogan">The header slogan</h2>
         </div>
         <div id="login">
             <ul>
-                <li>Hi Guest</li>
-                <li>
-                    <a href="javascript:void(0);" onclick="openMenu()"> Login </a>
-                </li>
+                <li> Hi <span><?php echo $fullname; ?></span></li>
+                <?php if (!$user) { ?>
+                    <li><a href="javascript:void(0);" onclick="openMenu()"> Login</a>
+                <?php } else { ?>
+                    <li><a href="javascript:void(0);">Logout</a></li>
+                <?php } ?>
             </ul>
             <div id="form1">
                 <form action="./index.php?m=login" method="post">
-                    <input type="text" placeholder="Username" />
-                    <input type="password" placeholder="Password" />
+                    <input type="text" name="username" placeholder="username" />
+                    <input type="password" name="password" placeholder="password" />
                     <div>
                         <input type="checkbox" name="rememberusername" />
                         Remember username

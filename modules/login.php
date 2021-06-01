@@ -5,7 +5,7 @@ $password = md5($_POST["password"]);
 
 $sql = "SELECT id, username, password
     FROM users
-    WHERE username = '$username' AND password = '$password7'
+    WHERE username = '$username' AND password = '$password'
     LIMIT 0, 1";
 
 $result = $mysql->query($sql);
