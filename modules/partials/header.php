@@ -6,7 +6,8 @@
         'home' => "Home",
         "profile" => "My Profile",
         "register" => "Register", // page title for register
-        "login" => "login"
+        "login" => "login" ,
+        "changePassword" => "changePassword"
     );
 
     /* 
@@ -25,7 +26,7 @@
     $user = false;
     if ($userId) {
         // query user data by $username and $password
-        $sql = "SELECT id, username, email, fullname
+        $sql = "SELECT id, username, email, fullname, password
             FROM users
             WHERE id = $userId
             LIMIT 0, 1";
@@ -101,6 +102,7 @@
             <?php } else { ?>
                 <li><a href="./index.php">Home</a></li>
                 <li><a href="./index.php?m=profile">My Profile</a></li>
+                <li><a href="./index.php?m=changePassword">Change Password</a></li>
             <?php } ?>
         </ul>
     </nav>

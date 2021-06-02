@@ -194,6 +194,25 @@ nav ul li {
 	width: 300px;
 }
 
+.form-changePassword {
+	margin: 5px;
+}
+
+.form-changePassword label {
+	font-weight: bold;
+	display: flex;
+	margin-bottom: 5px;
+}
+
+.form-changePassword input {
+	line-height: 30px;
+	height: 30px;
+	border: #ccc 1px solid;
+	margin: 0px;
+	padding: 0px 5px;
+	width: 300px;
+}
+
 /* 
 
     Footer
