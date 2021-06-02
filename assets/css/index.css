@@ -171,6 +171,23 @@ nav ul li {
     border: 1px solid;
 }
 
+#main-content table {
+	width: 50%;
+	text-align: center;
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+#main-content th, #main-content td {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+/* 
+#main-content th {
+
+} */
+
 #sidebar ul li {
     padding: 10px 0;
 }
