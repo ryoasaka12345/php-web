@@ -10,5 +10,3 @@ CREATE TABLE `users` (
     `email` varchar(255) NOT NULL DEFAULT '',
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-INSERT INTO users(`username`, `password`, `fullname`, `email`) VALUE ('user1', '123456', 'My User', 'myemail@example.com');

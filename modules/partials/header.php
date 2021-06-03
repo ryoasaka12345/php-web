@@ -1,43 +1,43 @@
 <?php
-    /* 
+/* 
         Define an array to contain page titles
     */
-    $pageTitles = array(
-        'home' => "Home",
-        "profile" => "My Profile",
-        "register" => "Register", // page title for register
-        "login" => "login" ,
-        "changePassword" => "changePassword"
-    );
+$pageTitles = array(
+    'home' => "Home",
+    "profile" => "My Profile",
+    "register" => "Register", // page title for register
+    "login" => "login",
+    "changePassword" => "changePassword"
+);
 
-    /* 
+/* 
         Get page title depend on what is using module. 
     */
-    $pageTitle = $pageTitles[$module];
+$pageTitle = $pageTitles[$module];
 
-    /* 
+/* 
         show logged in user
     */
-    $userId = null;
-    if (isset($_SESSION['login_user_id'])) {
-        $userId = $_SESSION['login_user_id'];
-    }
+$userId = null;
+if (isset($_SESSION['login_user_id'])) {
+    $userId = $_SESSION['login_user_id'];
+}
 
-    $user = false;
-    if ($userId) {
-        // query user data by $username and $password
-        $sql = "SELECT id, username, email, fullname, password
+$user = false;
+if ($userId) {
+    // query user data by $username and $password
+    $sql = "SELECT id, username, email, fullname, password
             FROM users
             WHERE id = $userId
             LIMIT 0, 1";
 
-        $result = $mysql->query($sql);
+    $result = $mysql->query($sql);
 
-        // if there is user information, mean that user is logged-in
-        $user = $result->fetch_array() ?? false;
-    }
+    // if there is user information, mean that user is logged-in
+    $user = $result->fetch_array() ?? false;
+}
 
-    $fullname = $user ? $user['fullname'] : 'Guest';
+$fullname = $user ? $user['fullname'] : 'Guest';
 
 ?>
 
@@ -69,7 +69,7 @@
                 <li> Hi <span><?php echo $fullname; ?></span></li>
                 <?php if (!$user) { ?>
                     <li><a href="javascript:void(0);" onclick="openMenu()"> Login</a>
-                <?php } else { ?>
+                    <?php } else { ?>
                     <li><a href="./index.php?m=logout">Logout</a></li>
                 <?php } ?>
             </ul>
@@ -96,11 +96,10 @@
     <!-- The menu -->
     <nav>
         <ul>
-            <?php if (!$user) {?>
-                <li><a href="./index.php">Home</a></li>
+            <li><a href="./index.php">Home</a></li>
+            <?php if (!$user) { ?>
                 <li><a href="./index.php?m=register">Register</a></li>
             <?php } else { ?>
-                <li><a href="./index.php">Home</a></li>
                 <li><a href="./index.php?m=profile">My Profile</a></li>
                 <li><a href="./index.php?m=changePassword">Change Password</a></li>
             <?php } ?>

@@ -2,6 +2,7 @@
 <?php
     if (!$user) {
         header("location: index.php");
+        exit;
     }
 ?>
 

@@ -1,6 +1,7 @@
 <?php
 if ($user) {
     header("location: index.php");
+    exit;
 } 
 
 // Define variable to check if user is not registered
