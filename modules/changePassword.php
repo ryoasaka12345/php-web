@@ -23,7 +23,7 @@ if (!empty($_POST)) {
 
     // An array to contain errors
     $errors = [];
-
+                        
     if ($newPass != $confPass || $user_pw != $curPass) {
         unset($_POST);
         if ($newPass != $confPass) {

@@ -7,7 +7,7 @@ $pageTitles = array(
     "profile" => "My Profile",
     "register" => "Register", // page title for register
     "login" => "login",
-    "changePassword" => "changePassword"
+    "changePassword" => "Change Password"
 );
 
 /* 
